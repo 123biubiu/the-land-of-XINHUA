@@ -144,6 +144,40 @@ public class Movement_Control : MonoBehaviour
 
 
         }
+        if (other.gameObject.tag == "ConnerPoint3")
+        {
+            Stop();
+            Rotate();
+            Rotate();
+            Rotate();
+
+
+        }
+        if (other.gameObject.tag == "ConnerPoint4")
+        {
+            Stop();
+            Rotate();
+            Rotate();
+            Rotate();
+
+
+        }
+        if (other.gameObject.tag == "ConnerPoint5")
+        {
+            Stop();
+            Rotate();
+           
+
+
+        }
+        if (other.gameObject.tag == "ConnerPoint6")
+        {
+            Stop();
+            Rotate();
+           
+
+
+        }
         IsTouchConnerPoint = false;
 
     }
