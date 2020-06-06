@@ -1,100 +1,150 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Movement_Control : MonoBehaviour
 {
 
-    public Animator anim;
-    private BoxCollider coll;
-    private Rigidbody rb;
-    [Header("movement parameters")]
-    public float speed = 8f;
 
-    [Header("status")]
-    public bool isOnGround;
-    public bool isWalking;
-    Vector3 Xmovement = new Vector3(1, 0, 0);
-    Vector3 Ymovement = new Vector3(0, 1, 0);
-    Vector3 Zmovement = new Vector3(0, 0, 1);
-    float PreviousZ;
-    float PreviousY;
-    float PreviousX;
 
-    int direction;
-    float orginalZ;
-    //public int Power = 10;
-    
-    void Start()
+    [SerializeField] private float movementSpeed = 2f;
+    private float currentSpeed = 0f;
+    private float walkSpeed = 3f;
+    private float speedSmoothVelocity = 0f;
+    private float speedSmoothTime = 0.1f;
+    private float rotationSpeed = 0.1f;
+    private float gravity = 3f;
+    private int Rollnumber;
+    //相机跟随。可加可不加，先占坑
+    //private Transform mainCameraTransform = null;
+
+    private CharacterController controller = null;
+    public Animator anim = null;
+    Vector3 desiredMoveDirection;
+    Vector3 gravityVector;
+    Vector3 right;
+    Vector3 forward;
+
+    private CapsuleCollider coll;
+
+
+    private bool IsTouchConnerPoint=false;
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
+        coll = GetComponent<CapsuleCollider>();
     }
-
-    // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetKey("space"))
+        gravityVector = Vector3.zero;
+
+        if (!controller.isGrounded)
         {
-            
+            gravityVector.y -= gravity;
+        }
+        if (IsTouchConnerPoint == false)
+        {
             Walk();
+
+        }
+
+
+        if (Input.GetKeyDown("space"))
+        {
+            //Roll();
+            //Move();
+           
+
             
         }
         if (Input.GetKey("s"))
         {
-            StopWalking();
+            Stop();
+        }
+        if (Input.GetKey("w"))
+        {
+            Walk();
         }
         if (Input.GetKey("e"))
         {
-            Rotating();
+            Rotate();
         }
     }
-    void Update()
+    //摇骰子
+    private void Roll()
     {
-       
+        for (int i = 1; i < Rollnumber; i++)
+            Move();
     }
-    void Walk() {
-        //rb.transform.position += -Zmovement * speed;
-        //Vector3 direction = new Vector3(rb.velocity.x, rb.velocity.x, -speed * Time.deltaTime);
-        isWalking = true;
-        WalkX();
-        //rb.AddForce(direction*Zmovement, ForceMode.Force);
-        anim.SetBool("Walk", true);
+    //移动总控制,
+    private void Move() {
+
+        //controller.Move(gravityVector * Time.deltaTime);
+
+        //Walk();
         
-
-
     }
-    void StopWalking() {
-        isOnGround = true;
-        rb.velocity = new Vector3(0, 0, 0);
+    //前进
+    public void Walk() {
+        anim.SetBool("Walk", true);
+        //Vector2 movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+         forward = transform.forward;
+         right = transform.right;
+        forward.Normalize();
+        right.Normalize();
+        //desiredMoveDirection = (forward*movementInput.y+right*movementInput.x).normalized;
+        desiredMoveDirection = (forward  + right).normalized;
+
+        controller.Move(transform.forward * walkSpeed * Time.deltaTime);
+
+
+        //if (desiredMoveDirection != Vector3.zero)
+        //{
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), rotationSpeed);
+        //}
+        //float targetSpeed = movementSpeed * movementInput.magnitude;
+
+        //currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed,ref speedSmoothVelocity,speedSmoothTime);
+    }
+
+    //停下来
+    private void Stop()
+    {
+        //rb.velocity = new Vector3(0, 0, 0);
         anim.SetBool("Walk", false);
+        IsTouchConnerPoint = true;
+        //controller.Move(Vector3.zero);
+        //controller.Move(-transform.forward * walkSpeed * Time.deltaTime);
 
     }
-   
-    void WalkX()
+    //转身
+    private void Rotate()
     {
-        PreviousX = this.gameObject.transform.position.x;
-        direction = 1;
-        rb.velocity = new Vector3(direction * speed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-    }
-
-    void WalkY()
-    {
-        PreviousY = this.gameObject.transform.position.y;
-        direction = 1;
-        rb.velocity = new Vector3(rb.velocity.x, direction * speed * Time.deltaTime, rb.velocity.z);
-    }
-    void WalkZ()
-    {
-        PreviousZ = this.gameObject.transform.position.z;
-        direction = 1;
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, direction * speed * Time.deltaTime);
-    }
-    void Rotating() {
-        StopWalking();
-        //Vector3 dir = new Vector3(this.transform.rotation.x, 90, this.transform.rotation.z);
-        //Quaternion quaDir = Quaternion.LookRotation(dir, Vector3.up);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, quaDir, Time.fixedDeltaTime * speed);
+        Stop();
         transform.Rotate(0, 90, 0);
-    }
 
+    }
+  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ConnerPoint1")
+        {
+            Stop();
+            Rotate();
+            Rotate();
+            Rotate();
+
+
+        }
+        if (other.gameObject.tag == "ConnerPoint2")
+        {
+            Stop();
+            Rotate();
+
+
+        }
+        IsTouchConnerPoint = false;
+
+    }
 }
