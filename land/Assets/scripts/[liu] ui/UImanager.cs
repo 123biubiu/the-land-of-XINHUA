@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class UImanager : MonoBehaviour
 {
-    public List<string> contents;
+    public List<string> rulercontents;
+    public List<string> rebelcontents;
+    public int teachhmode;
     public UIpannel pannel;
     private int currentLine;
     // Start is called before the first frame update
@@ -16,49 +18,50 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space")) {
-
-            showUI();
-            loadText(contents[currentLine]);
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            nextLine();
-            if (currentLine >= contents.Count)
+        if (pannel.contentText.enabled==true) {
+            if (Input.GetMouseButtonDown(0))
             {
-                currentLine = contents.Count;
-                init();
+                nextLine();
+                if (currentLine >= rulercontents.Count)
+                {
+                    currentLine = rulercontents.Count;
+                    init();
+                }
+                loadText(rulercontents[currentLine]);
             }
-            loadText(contents[currentLine]);
         }
     }
 
-    void init()
+    public void init()
 	{
         hideUI();
         currentLine = 0;
         pannel.setContext("");
 	}
 
-    void showUI()
+    public void showUI()
 	{
         pannel.showDialog(true);
         pannel.showText(true);
 	}
 
-    void hideUI()
+    public void hideUI()
 	{
         pannel.showText(false);
         pannel.showDialog(false);
 	}
 
-    void nextLine()
+    public void nextLine()
     {
         currentLine++;
     }
 
-    void loadText(string value)
+    public void loadText(string value)
 	{
         pannel.setContext(value);
 	}
+
+    public void setMode(int mode) {
+        teachhmode = mode;
+    }
 }
