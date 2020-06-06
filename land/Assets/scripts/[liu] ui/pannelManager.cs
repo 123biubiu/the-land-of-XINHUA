@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class pannelManager : MonoBehaviour
 {
-    public List<string> contents;
+    public List<string> chanceContents;
+    public List<string> eventContents;
     public Text contentText;
     public int currentNumber;
     public string currentEvent;
+    public string currentChance;
 
     public void setContext(string value)
     {
@@ -20,7 +22,11 @@ public class pannelManager : MonoBehaviour
     }
 
     public void getChance() {
-        currentEvent = contents[Random.Range(0, contents.Count)];
-        setContext(currentEvent);
+        currentChance = chanceContents[Random.Range(0, chanceContents.Count)];
+        setContext(currentChance);
+    }
+
+    public void getEvent() {
+        currentEvent = eventContents[Random.Range(0,eventContents.Count)];
     }
 }

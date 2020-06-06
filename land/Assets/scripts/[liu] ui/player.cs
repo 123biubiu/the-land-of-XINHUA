@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    public int money;
+    public int housevalue;
+    public int totalProperty;
+    public string nickname;
+
+    public Player(int money,string nickname) {
+        this.money = money;
+        this.nickname = nickname;
+        housevalue = 0;
+        setTotal();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void setTotal() {
+        totalProperty = housevalue + money;
     }
+    
 }
