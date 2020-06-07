@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class pannelManager : MonoBehaviour
 {
+    public List<Sprite> diceImageList;
     public List<string> chanceContents;
     public List<string> eventContents;
     public Text contentText;
+    public Image dice1;
+    public Image dice2;
     public int currentNumber;
     public string currentEvent;
     public string currentChance;
@@ -17,7 +20,11 @@ public class pannelManager : MonoBehaviour
     }
 
     public void getDiceNumber() {
-        currentNumber = Random.Range(1, 6);
+        int dice11 = Random.Range(1, 6);
+        int dice22 = Random.Range(1, 6);
+        dice1.sprite = diceImageList[dice11-1];
+        dice2.sprite = diceImageList[dice22-1];
+        currentNumber = dice11 + dice22;
         setContext("go " + currentNumber + " step");
     }
 

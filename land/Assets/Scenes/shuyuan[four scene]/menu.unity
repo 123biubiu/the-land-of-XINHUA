@@ -1376,22 +1376,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 661402872}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1143694883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143694881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8006e435be76d493ab27738d98a01b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1143694886}
-  speed: 21
-  isOnGround: 0
-  isWalking: 0
 --- !u!65 &1143694884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1421,12 +1405,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &1143694886 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9575772, guid: 10fd5d5a6d1a4bc44adc97dfb45d60f1,
-    type: 3}
-  m_PrefabInstance: {fileID: 661402872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1263373513
 GameObject:
   m_ObjectHideFlags: 0
