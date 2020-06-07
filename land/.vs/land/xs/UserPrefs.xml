@@ -1,20 +1,14 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{25B4356F-9993-F64F-BB60-B8BC8CB8F989}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/[liu] ui/pannelManager.cs">
     <Files>
       <File FileName="Assets/scripts/[liu] ui/pannelManager.cs" Line="10" Column="17" />
-      <File FileName="Assets/scripts/[liu] ui/dcontrol.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/[liu] ui/UImanager.cs" Line="95" Column="2" />
-      <File FileName="Assets/scripts/[liu] ui/initmode.cs" />
-      <File FileName="Assets/scripts/[liu] ui/UIpannel.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="49312e7b-10e3-4885-a89e-168f599273f1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7fb8935a-d517-466c-a6bc-e50a5f6e6ff6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/liu/Documents/GitHub/the-land-of-XINHUA/land/Assets/scripts/Scripts_Player_control/Movement_Control.cs" relfile="Assets/scripts/Scripts_Player_control/Movement_Control.cs" line="19" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
