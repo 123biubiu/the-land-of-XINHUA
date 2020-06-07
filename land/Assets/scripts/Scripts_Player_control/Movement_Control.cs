@@ -126,14 +126,16 @@ public class Movement_Control : MonoBehaviour
     private void Rotate()
     {
         Stop();
+        
         transform.Rotate(0, 90, 0);
 
     }
-  
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "ConnerPoint1")
         {
+
             Stop();
             Rotate();
             Rotate();
