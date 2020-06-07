@@ -7,6 +7,9 @@ TagManager:
   - ConnerPoint1
   - ConnerPoint2
   - ConnerPoint3
+  - ConnerPoint4
+  - ConnerPoint5
+  - ConnerPoint6
   layers:
   - Default
   - TransparentFX
