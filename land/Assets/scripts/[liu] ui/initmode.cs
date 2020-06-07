@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class initmode : MonoBehaviour
@@ -8,6 +6,7 @@ public class initmode : MonoBehaviour
     public UImanager uImanager;
     private Button rebel;
     private Button ruler;
+    private Button story;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +14,8 @@ public class initmode : MonoBehaviour
         rebel.onClick.AddListener(rebelMode);
         ruler = transform.Find("ruler mode").GetComponent<Button>();
         ruler.onClick.AddListener(rulerMode);
+        story = transform.Find("background").GetComponent<Button>();
+        story.onClick.AddListener(storyMode);
     }
 
     // Update is called once per frame
@@ -25,10 +26,21 @@ public class initmode : MonoBehaviour
 
     void rebelMode() {
         uImanager.setMode(1);
+        uImanager.showUI();
+        uImanager.hideInit();
     }
 
     void rulerMode()
     {
         uImanager.setMode(2);
+        uImanager.showUI();
+        uImanager.hideInit();
+    }
+
+    void storyMode()
+    {
+        uImanager.setMode(3);
+        uImanager.showUI();
+        uImanager.hideInit();
     }
 }

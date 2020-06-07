@@ -5,6 +5,7 @@ public class UIpannel : MonoBehaviour
 {
     public Image dialog;
     public Text contentText;
+    public GameObject Panel;
 
     public void showDialog(bool value)
     {
@@ -20,4 +21,9 @@ public class UIpannel : MonoBehaviour
     {
         contentText.enabled = value;
     }
+    public void showButton(bool value) {
+        Panel.SetActive(value);
+    }
+
+
 }

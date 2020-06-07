@@ -6,6 +6,8 @@ public class UImanager : MonoBehaviour
 {
     public List<string> rulercontents;
     public List<string> rebelcontents;
+    public List<string> storycontents;
+    public List<string> currentMode;
     public int teachhmode;
     public UIpannel pannel;
     private int currentLine;
@@ -13,6 +15,7 @@ public class UImanager : MonoBehaviour
     void Start()
     {
         init();
+
     }
 
     // Update is called once per frame
@@ -22,21 +25,38 @@ public class UImanager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 nextLine();
-                if (currentLine >= rulercontents.Count)
+                if (currentLine >= currentMode.Count)
                 {
-                    currentLine = rulercontents.Count;
+                    currentLine = currentMode.Count;
                     init();
                 }
-                loadText(rulercontents[currentLine]);
+                loadText(currentMode[currentLine]);
+                
             }
         }
     }
 
+    private void modeControl()
+    {
+        switch (teachhmode)
+        {
+            case 1:
+                currentMode = rebelcontents;
+                break;
+            case 2:
+                currentMode = rulercontents;
+                break;
+            case 3:
+                currentMode = storycontents;
+                break;
+        }
+    }
     public void init()
 	{
         hideUI();
         currentLine = 0;
         pannel.setContext("");
+        showInit();
 	}
 
     public void showUI()
@@ -45,6 +65,13 @@ public class UImanager : MonoBehaviour
         pannel.showText(true);
 	}
 
+    public void showInit() {
+        pannel.showButton(true);
+
+    }
+    public void hideInit() {
+        pannel.showButton(false);
+    }
     public void hideUI()
 	{
         pannel.showText(false);
@@ -63,5 +90,6 @@ public class UImanager : MonoBehaviour
 
     public void setMode(int mode) {
         teachhmode = mode;
+        modeControl();
     }
 }
