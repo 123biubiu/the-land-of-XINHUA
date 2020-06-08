@@ -155,26 +155,11 @@ MonoBehaviour:
   - 222
   - 333
   rebelcontents: []
-  storycontents:
-  - The story took place in a village named Xinhua in southern China.
-  - One of the landlords, Liu Yang, had a lot of land because his ancestors had been
-    officials in the government.
-  - ' He is usually arrogant, often bullying other people, and employing many bodyguards,
-    so most of the farmers dare not resist.'
-  - There are many tenants of Liu Yang, including a pair of siblings named Hu Zi
-    and Ying Zi.
-  - Brother Huzi has been hardworking and capable since childhood, and has helped
-    a lot in the family. He treats people very kindly.
-  - Although her sister Yingzi is not as strong as her brother, she is a very smart
-    girl. They also have a common friend named Hua Zi, a neighbor's child.
-  - The three of them have been very good friends since childhood and have very close
-    relationships.
-  - Faced with the unreasonable demands of the landlord, Hu Zi, Ying Zi, and Hua
-    Zi joined forces with other oppressed farmers to resist, overthrow the landlord's
-    rule through labor, and finally obtained their own land.
+  storycontents: []
   currentMode: []
   teachhmode: 0
   pannel: {fileID: 720947223}
+  exit: {fileID: 1155245190}
 --- !u!4 &67023154
 Transform:
   m_ObjectHideFlags: 0
