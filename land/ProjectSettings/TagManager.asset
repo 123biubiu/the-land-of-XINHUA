@@ -10,6 +10,7 @@ TagManager:
   - ConnerPoint4
   - ConnerPoint5
   - ConnerPoint6
+  - testpoint
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - point
   - 
   - 
   - 

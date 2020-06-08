@@ -9,7 +9,7 @@ public class Movement_Control : MonoBehaviour
 
     [SerializeField] private float movementSpeed = 2f;
     private float currentSpeed = 0f;
-    private float walkSpeed = 0.5f;
+    private float walkSpeed = 1f;
     private float speedSmoothVelocity = 0f;
     private float speedSmoothTime = 0.1f;
     private float rotationSpeed = 0.1f;
@@ -28,10 +28,15 @@ public class Movement_Control : MonoBehaviour
 
     private CapsuleCollider coll;
 
-
+    //是否触屏到拐弯点
     public bool IsTouchConnerPoint=true;
+    //是否顺时针
     public bool isSunshizhen = true;
+    //用于顺逆时针判断点参数
     public int Judge = 2;
+    //累计走过的步数。用于骰子数检测
+    public int accumulatedLayernumber;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -271,4 +276,6 @@ public class Movement_Control : MonoBehaviour
         IsTouchConnerPoint = false;
 
     }
+
+
 }
