@@ -139,7 +139,7 @@ public class UImanager : MonoBehaviour
         rulercontents.Add("Keep your rule and defeat the disrespectful rebels");
     }
 
-    void backmenu() {
+    private void backmenu() {
 
         GameManager.Instance.LoadScene("menu");
     }
