@@ -9,7 +9,7 @@ public class Movement_Control : MonoBehaviour
 
     [SerializeField] private float movementSpeed = 2f;
     private float currentSpeed = 0f;
-    private float walkSpeed = 3f;
+    private float walkSpeed = 0.5f;
     private float speedSmoothVelocity = 0f;
     private float speedSmoothTime = 0.1f;
     private float rotationSpeed = 0.1f;
@@ -29,7 +29,9 @@ public class Movement_Control : MonoBehaviour
     private CapsuleCollider coll;
 
 
-    private bool IsTouchConnerPoint=true;
+    public bool IsTouchConnerPoint=true;
+    public bool isSunshizhen = true;
+    public int Judge = 2;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -40,11 +42,14 @@ public class Movement_Control : MonoBehaviour
     private void Update()
     {
         gravityVector = Vector3.zero;
+        SunshizhenJudge();
+
 
         if (!controller.isGrounded)
         {
             gravityVector.y -= gravity;
         }
+        
         if (IsTouchConnerPoint == false)
         {
             Walk();
@@ -72,6 +77,29 @@ public class Movement_Control : MonoBehaviour
         if (Input.GetKey("e"))
         {
             Rotate();
+        }
+        if (Input.GetKey("t"))
+        {
+            turnbackDirection();
+        }
+
+    }
+    private void turnbackDirection() {
+        Stop();
+        Rotate();
+        Rotate();
+        Judge += 1;
+    }
+
+    private void SunshizhenJudge()
+    {
+        if (Judge % 2 == 0)
+        {
+            isSunshizhen = true;
+        }
+        else
+        {
+            isSunshizhen = false;
         }
     }
     //摇骰子
@@ -133,56 +161,112 @@ public class Movement_Control : MonoBehaviour
    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "ConnerPoint1")
+        if (isSunshizhen == true)
         {
+            if (other.gameObject.tag == "ConnerPoint1")
+            {
 
-            Stop();
-            Rotate();
-            Rotate();
-            Rotate();
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
 
 
+            }
+            if (other.gameObject.tag == "ConnerPoint2")
+            {
+                Stop();
+                Rotate();
+
+
+            }
+            if (other.gameObject.tag == "ConnerPoint3")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
+
+
+            }
+            if (other.gameObject.tag == "ConnerPoint4")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
+
+
+            }
+            if (other.gameObject.tag == "ConnerPoint5")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
+
+
+            }
+            if (other.gameObject.tag == "ConnerPoint6")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
+
+
+            }
         }
-        if (other.gameObject.tag == "ConnerPoint2")
+        if (isSunshizhen == false)
         {
-            Stop();
-            Rotate();
+            if (other.gameObject.tag == "ConnerPoint1")
+            {
 
+                Stop();
+                Rotate();
+             
 
-        }
-        if (other.gameObject.tag == "ConnerPoint3")
-        {
-            Stop();
-            Rotate();
-            Rotate();
-            Rotate();
+            }
+            if (other.gameObject.tag == "ConnerPoint2")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
 
-
-        }
-        if (other.gameObject.tag == "ConnerPoint4")
-        {
-            Stop();
-            Rotate();
-            Rotate();
-            Rotate();
-
-
-        }
-        if (other.gameObject.tag == "ConnerPoint5")
-        {
-            Stop();
-            Rotate();
+            }
+            if (other.gameObject.tag == "ConnerPoint3")
+            {
+                Stop();
+                Rotate();
            
 
 
-        }
-        if (other.gameObject.tag == "ConnerPoint6")
-        {
-            Stop();
-            Rotate();
-           
+            }
+            if (other.gameObject.tag == "ConnerPoint4")
+            {
+                Stop();
+                Rotate();
+             
 
 
+            }
+            if (other.gameObject.tag == "ConnerPoint5")
+            {
+                Stop();
+                Rotate();
+              
+
+
+            }
+            if (other.gameObject.tag == "ConnerPoint6")
+            {
+                Stop();
+                Rotate();
+             
+
+
+            }
         }
         IsTouchConnerPoint = false;
 
