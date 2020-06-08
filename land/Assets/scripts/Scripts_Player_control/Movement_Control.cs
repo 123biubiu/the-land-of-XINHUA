@@ -15,6 +15,7 @@ public class Movement_Control : MonoBehaviour
     private float rotationSpeed = 0.1f;
     private float gravity = 3f;
     private int Rollnumber;
+    private pannelManager pannelManager;
     //相机跟随。可加可不加，先占坑
     //private Transform mainCameraTransform = null;
 
@@ -28,12 +29,13 @@ public class Movement_Control : MonoBehaviour
     private CapsuleCollider coll;
 
 
-    private bool IsTouchConnerPoint=false;
+    private bool IsTouchConnerPoint=true;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         coll = GetComponent<CapsuleCollider>();
+        pannelManager = GetComponent<pannelManager>();
     }
     private void Update()
     {
@@ -54,9 +56,10 @@ public class Movement_Control : MonoBehaviour
         {
             //Roll();
             //Move();
-           
+            IsTouchConnerPoint = false;
 
-            
+
+
         }
         if (Input.GetKey("s"))
         {
@@ -74,6 +77,7 @@ public class Movement_Control : MonoBehaviour
     //摇骰子
     private void Roll()
     {
+        Rollnumber = pannelManager.currentNumber;
         for (int i = 1; i < Rollnumber; i++)
             Move();
     }
@@ -122,14 +126,16 @@ public class Movement_Control : MonoBehaviour
     private void Rotate()
     {
         Stop();
+        
         transform.Rotate(0, 90, 0);
 
     }
-  
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "ConnerPoint1")
         {
+
             Stop();
             Rotate();
             Rotate();
