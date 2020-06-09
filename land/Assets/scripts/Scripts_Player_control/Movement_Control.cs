@@ -36,6 +36,7 @@ public class Movement_Control : MonoBehaviour
     public int Judge = 2;
     //累计走过的步数。用于骰子数检测
     public int accumulatedLayernumber;
+    public int bushu;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class Movement_Control : MonoBehaviour
         anim = GetComponent<Animator>();
         coll = GetComponent<CapsuleCollider>();
         pannelManager = GetComponent<pannelManager>();
+        bushu = 1;
     }
     private void Update()
     {
@@ -77,7 +79,7 @@ public class Movement_Control : MonoBehaviour
         }
         if (Input.GetKey("w"))
         {
-            Walk();
+            //Walk();
         }
         if (Input.GetKey("e"))
         {
@@ -178,23 +180,15 @@ public class Movement_Control : MonoBehaviour
 
 
             }
-            if (other.gameObject.tag == "ConnerPoint2")
+
+            else if (other.gameObject.tag == "ConnerPoint2")
             {
                 Stop();
                 Rotate();
 
 
             }
-            if (other.gameObject.tag == "ConnerPoint3")
-            {
-                Stop();
-                Rotate();
-                Rotate();
-                Rotate();
-
-
-            }
-            if (other.gameObject.tag == "ConnerPoint4")
+            else if (other.gameObject.tag == "ConnerPoint3")
             {
                 Stop();
                 Rotate();
@@ -203,7 +197,7 @@ public class Movement_Control : MonoBehaviour
 
 
             }
-            if (other.gameObject.tag == "ConnerPoint5")
+            else if (other.gameObject.tag == "ConnerPoint4")
             {
                 Stop();
                 Rotate();
@@ -212,12 +206,29 @@ public class Movement_Control : MonoBehaviour
 
 
             }
-            if (other.gameObject.tag == "ConnerPoint6")
+            else if (other.gameObject.tag == "ConnerPoint5")
             {
                 Stop();
                 Rotate();
                 Rotate();
                 Rotate();
+
+
+            }
+            else if (other.gameObject.tag == "ConnerPoint6")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Rotate();
+
+
+            }
+            else
+            {
+
+                Stop();
+
 
 
             }
@@ -273,8 +284,13 @@ public class Movement_Control : MonoBehaviour
 
             }
         }
-        IsTouchConnerPoint = false;
 
+        bushu = bushu - 1;
+        if (bushu>0) {
+            IsTouchConnerPoint = false;
+        }
+        
+        
     }
 
 

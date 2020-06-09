@@ -11,6 +11,7 @@ TagManager:
   - ConnerPoint5
   - ConnerPoint6
   - testpoint
+  - land1
   layers:
   - Default
   - TransparentFX
