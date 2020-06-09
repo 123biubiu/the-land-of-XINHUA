@@ -9,6 +9,11 @@ public class UImanager : MonoBehaviour
     public List<string> rebelcontents;
     public List<string> storycontents;
     public List<string> currentMode;
+    public List<Sprite> rulerlist;
+    public List<Sprite> rebellist;
+    public List<Sprite> storylist;
+    public List<Sprite> currentlist;
+    public Image tupian;
     public int teachhmode;
     public UIpannel pannel;
     private int currentLine;
@@ -26,6 +31,7 @@ public class UImanager : MonoBehaviour
         if (pannel.contentText.enabled==true) {
             if (Input.GetMouseButtonDown(0))
             {
+                loadImage(currentlist[currentLine]);
                 loadText(currentMode[currentLine]);
                 nextLine();
                 if (currentLine >= currentMode.Count)
@@ -44,12 +50,15 @@ public class UImanager : MonoBehaviour
         switch (teachhmode)
         {
             case 1:
+                currentlist = rebellist;
                 currentMode = rebelcontents;
                 break;
             case 2:
+                currentlist = rulerlist;
                 currentMode = rulercontents;
                 break;
             case 3:
+                currentlist = storylist;
                 currentMode = storycontents;
                 break;
         }
@@ -57,6 +66,7 @@ public class UImanager : MonoBehaviour
     public void init()
 	{
         hideUI();
+        tupian.enabled = false;
         currentLine = 0;
         pannel.setContext("");
         showInit();
@@ -92,6 +102,14 @@ public class UImanager : MonoBehaviour
         pannel.setContext(value);
 	}
 
+    public void loadImage(Sprite nowsprite) {
+        tupian.sprite = nowsprite;
+    }
+
+    public void showimage() {
+        tupian.enabled = true;
+
+    }
     public void setMode(int mode) {
         teachhmode = mode;
         modeControl();
@@ -109,6 +127,7 @@ public class UImanager : MonoBehaviour
         storycontents.Add("Although her sister Yingzi is not as strong as her brother, she is a very smart girl. They also have a common friend named Hua Zi, a neighbor's child.");
         storycontents.Add("The three of them have been very good friends since childhood and have very close relationships.");
         storycontents.Add("Faced with the unreasonable demands of the landlord, Hu Zi, Ying Zi, and Hua Zi joined forces with other oppressed farmers to resist, overthrow the landlord's rule through labor, and finally obtained their own land.");
+        storycontents.Add("");
         rebelcontents.Clear();
         rebelcontents.Add("as a rebel, There are three players in the rebel camp. The winning condition is that the ruler loses all the money.");
         rebelcontents.Add("Money includes gold and property, the game shows the total amount of gold and property held by the player");
@@ -123,6 +142,7 @@ public class UImanager : MonoBehaviour
         rebelcontents.Add("At the beginning of the game, the rebel camp has only gold and no other assets.");
         rebelcontents.Add("There are some characters for the rebel camp to choose from. Each character has its own unique skills. Using these skills properly will help you to win.");
         rebelcontents.Add("Work with your teammates to overthrow the ruler！");
+        rebelcontents.Add("");
         rulercontents.Clear();
         rulercontents.Add("As a ruler, you will face three rebels on your own. Victory is conditional on the loss of all money to all rebels.");
         rulercontents.Add("Money includes gold and property, the game shows the total amount of gold and property held by the player");
@@ -137,6 +157,7 @@ public class UImanager : MonoBehaviour
         rulercontents.Add("In order to help you maintain your rule, you will gain random land at the beginning of the game, and you will have no less gold than the rebels.");
         rulercontents.Add("At the same time, you can also choose different landlord roles. The characters will have their own unique skills. Using these skills properly will help you suppress the rebels.");
         rulercontents.Add("Keep your rule and defeat the disrespectful rebels");
+        rulercontents.Add("");
     }
 
     private void backmenu() {

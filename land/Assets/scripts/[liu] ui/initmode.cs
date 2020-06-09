@@ -28,6 +28,7 @@ public class initmode : MonoBehaviour
         uImanager.setMode(1);
         uImanager.showUI();
         uImanager.hideInit();
+        uImanager.showimage();
     }
 
     void rulerMode()
@@ -35,6 +36,7 @@ public class initmode : MonoBehaviour
         uImanager.setMode(2);
         uImanager.showUI();
         uImanager.hideInit();
+        uImanager.showimage();
     }
 
     void storyMode()
@@ -42,5 +44,6 @@ public class initmode : MonoBehaviour
         uImanager.setMode(3);
         uImanager.showUI();
         uImanager.hideInit();
+        uImanager.showimage();
     }
 }
