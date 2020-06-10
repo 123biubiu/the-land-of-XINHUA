@@ -305,7 +305,6 @@ public class Movement_Control : MonoBehaviour
             {
                 Stop();
                 Rotate();
-                Rotate();
 
 
 
@@ -325,6 +324,12 @@ public class Movement_Control : MonoBehaviour
              
 
 
+            }
+            if(other.gameObject.name == "Cube (5)")
+            {
+                Stop();
+                Rotate();
+                Rotate();
             }
         }
         if (accumulatedLayernumber==nextnumber-1) {

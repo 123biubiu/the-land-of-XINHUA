@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{25B4356F-9993-F64F-BB60-B8BC8CB8F989}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Scripts_Player_control/Movement_Control.cs">
     <Files>
-      <File FileName="Assets/scripts/Scripts_Player_control/Movement_Control.cs" Line="345" Column="26" />
+      <File FileName="Assets/scripts/Scripts_Player_control/Movement_Control.cs" Line="333" Column="14" />
       <File FileName="Assets/scripts/[liu] ui/goldUImanager.cs" />
       <File FileName="Assets/scripts/Scripts_Player_control/event.cs" />
       <File FileName="Assets/scripts/[liu] ui/player.cs" />
