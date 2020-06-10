@@ -14,6 +14,7 @@ public class Event : MonoBehaviour
     public int currentevee;
     private Collider currentcoll;
     public Player currentplayer;
+    public GameObject ward;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +34,11 @@ public class Event : MonoBehaviour
     public void eventTrigger(Collider other,Player p) {
         currentcoll = other;
         currentplayer = p;
-        if (other.gameObject.tag == "ConnerPoint4")
-        {
-            startingpoint(p);
-        }
-        else if (other.gameObject.tag == "land")
+        //if (other.gameObject.tag == "ConnerPoint4")
+        //{
+          //  startingpoint(p);
+        //}
+        if (other.gameObject.tag == "land")
         {
             //landevent(other,p);
             currentevee = 0;
@@ -188,6 +189,8 @@ public class Event : MonoBehaviour
         else if (currentevee == 2) {
             randomevent(pnm.currenteventId);
         }
+        ward.SetActive(true);
+        currentevee = -1;
     }
     public void noliste()
     {
@@ -202,6 +205,7 @@ public class Event : MonoBehaviour
         {
             randomevent(pnm.currenteventId);
         }
+        ward.SetActive(true);
         currentevee = -1;
     }
 }

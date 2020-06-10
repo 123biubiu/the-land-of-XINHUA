@@ -31,7 +31,7 @@ public class Movement_Control : MonoBehaviour
 
 
     //to check the disrection of walking
-    public int Judge = 2;
+    public int Judge = 1;
     //the point number that has stepped
     public int accumulatedLayernumber;
     public int bushu;
