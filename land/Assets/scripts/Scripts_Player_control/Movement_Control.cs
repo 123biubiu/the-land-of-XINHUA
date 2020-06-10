@@ -134,8 +134,8 @@ public class Movement_Control : MonoBehaviour
 
         //}
         currentnumber = accumulatedLayernumber;
-        //骰子数等于1
-        nextnumber = currentnumber +1;
+        //骰子数等于3
+        nextnumber = currentnumber +3;
     }
     //移动总控制,
     private void Move() {
@@ -305,7 +305,8 @@ public class Movement_Control : MonoBehaviour
             {
                 Stop();
                 Rotate();
-             
+                Rotate();
+
 
 
             }

@@ -1,16 +1,17 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Scripts_Player_control/event.cs">
+﻿<Properties StartupConfiguration="{25B4356F-9993-F64F-BB60-B8BC8CB8F989}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Scripts_Player_control/Movement_Control.cs">
     <Files>
-      <File FileName="Assets/scripts/Scripts_Player_control/Movement_Control.cs" Line="59" Column="37" />
-      <File FileName="Assets/scripts/[liu] ui/goldUImanager.cs" Line="44" Column="42" />
+      <File FileName="Assets/scripts/Scripts_Player_control/Movement_Control.cs" Line="309" Column="1" />
+      <File FileName="Assets/scripts/[liu] ui/goldUImanager.cs" />
       <File FileName="Assets/scripts/Scripts_Player_control/event.cs" Line="105" Column="45" />
-      <File FileName="Assets/scripts/[liu] ui/player.cs" Line="25" Column="29" />
-      <File FileName="Assets/scripts/[liu] ui/land.cs" Line="26" Column="1" />
-      <File FileName="Assets/scripts/[liu] ui/pannelManager.cs" Line="18" Column="26" />
+      <File FileName="Assets/scripts/[liu] ui/player.cs" />
+      <File FileName="Assets/scripts/[liu] ui/land.cs" />
+      <File FileName="Assets/scripts/[liu] ui/pannelManager.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="285a9087-5ba5-48d1-806b-bcd61071c597" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
