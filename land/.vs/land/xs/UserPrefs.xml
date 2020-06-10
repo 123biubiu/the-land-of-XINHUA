@@ -1,31 +1,5 @@
-<<<<<<< HEAD
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/[liu] ui/rmenu.cs">
-    <Files>
-      <File FileName="Assets/backmanager.cs" Line="26" Column="2" />
-      <File FileName="Assets/lookperson.cs" Line="46" Column="6" />
-      <File FileName="Assets/scripts/Scripts_Player_control/Movement_Control.cs" />
-      <File FileName="Assets/scripts/[liu] ui/goldUImanager.cs" />
-      <File FileName="Assets/scripts/Scripts_Player_control/event.cs" Line="105" Column="45" />
-      <File FileName="Assets/scripts/[liu] ui/player.cs" />
-      <File FileName="Assets/scripts/[liu] ui/pannelManager.cs" />
-      <File FileName="Assets/scripts/[liu] ui/land.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/[liu] ui/menu.cs" Line="32" Column="8" />
-      <File FileName="Assets/scripts/[liu] ui/infoexit.cs" Line="20" Column="27" />
-      <File FileName="Assets/scripts/[liu] ui/rmenu.cs" Line="31" Column="28" />
-=======
 ﻿<Properties StartupConfiguration="{25B4356F-9993-F64F-BB60-B8BC8CB8F989}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Scripts_Player_control/Movement_Control.cs">
-    <Files>
-      <File FileName="Assets/scripts/Scripts_Player_control/Movement_Control.cs" Line="333" Column="14" />
-      <File FileName="Assets/scripts/[liu] ui/goldUImanager.cs" />
-      <File FileName="Assets/scripts/Scripts_Player_control/event.cs" />
-      <File FileName="Assets/scripts/[liu] ui/player.cs" />
-      <File FileName="Assets/scripts/[liu] ui/land.cs" />
-      <File FileName="Assets/scripts/[liu] ui/pannelManager.cs" />
->>>>>>> 6feba24da47a71adf93a90836192f4f203789e7c
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="285a9087-5ba5-48d1-806b-bcd61071c597" />
