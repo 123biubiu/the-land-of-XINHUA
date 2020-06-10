@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/shuyuan[four scene]/information.unity
     guid: 8bde551a9731b4d22afdb2e1d75eb206
+  - enabled: 1
+    path: Assets/Scenes/Gameplay/test.unity
+    guid: ec3ba491de16d8c4794efe8ecbe19e2d
   m_configObjects: {}

@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\backmanager.cs" />
      <Compile Include="Assets\lookperson.cs" />
      <Compile Include="Assets\scripts\Scripts_Player_control\Event.cs" />
      <Compile Include="Assets\scripts\Scripts_Player_control\HairControl.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\scripts\[liu] ui\dcontrol.cs" />
      <Compile Include="Assets\scripts\[liu] ui\dialogmanager.cs" />
      <Compile Include="Assets\scripts\[liu] ui\goldUImanager.cs" />
+     <Compile Include="Assets\scripts\[liu] ui\infoexit.cs" />
      <Compile Include="Assets\scripts\[liu] ui\initmode.cs" />
      <Compile Include="Assets\scripts\[liu] ui\land.cs" />
      <Compile Include="Assets\scripts\[liu] ui\lookcamera.cs" />
