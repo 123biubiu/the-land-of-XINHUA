@@ -104,7 +104,7 @@ public class Movement_Control : MonoBehaviour
         }
 
     }
-    private void turnbackDirection() {
+    public void turnbackDirection() {
         Stop();
         Rotate();
         Rotate();
@@ -274,7 +274,16 @@ public class Movement_Control : MonoBehaviour
 
 
             }
+            if (other.gameObject.name == "Cube (7)")
+            {
+                Stop();
+                Rotate();
+                Rotate();
+                Judge += 1;
+
+            }
         }
+        //shunshizhen 
         if (isSunshizhen == false)
         {
             if (other.gameObject.tag == "ConnerPoint1")
@@ -325,12 +334,7 @@ public class Movement_Control : MonoBehaviour
 
 
             }
-            if(other.gameObject.name == "Cube (5)")
-            {
-                Stop();
-                Rotate();
-                Rotate();
-            }
+         
         }
         if (accumulatedLayernumber==nextnumber-1) {
             eve.eventTrigger(other,my);
@@ -352,5 +356,5 @@ public class Movement_Control : MonoBehaviour
         IsTouchConnerPoint = false;
     }
 
-
+    
 }
