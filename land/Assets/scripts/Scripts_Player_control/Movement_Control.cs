@@ -16,7 +16,7 @@ public class Movement_Control : MonoBehaviour
     private float gravity = 3f;
     private int Rollnumber;
     private pannelManager pannelManager;
-    //相机跟随。可加可不加，先占坑
+    //camara follow 
     //private Transform mainCameraTransform = null;
 
     private CharacterController controller = null;
@@ -30,9 +30,9 @@ public class Movement_Control : MonoBehaviour
     private CapsuleCollider coll;
 
 
-    //用于顺逆时针判断点参数
+    //to check the disrection of walking
     public int Judge = 2;
-    //累计走过的步数。用于骰子数检测
+    //the point number that has stepped
     public int accumulatedLayernumber;
     public int bushu;
     [Header("detection")]
@@ -42,9 +42,9 @@ public class Movement_Control : MonoBehaviour
     public int nextnumber;
     public int currentnumber;
     [Header ("state")]
-    //是否触屏到拐弯点
+    //if the conner point is touched
     public bool IsTouchConnerPoint = true;
-    //是否顺时针
+    //if is in clockwise
     public bool isSunshizhen = true;
     public Event eve;
 
@@ -122,11 +122,11 @@ public class Movement_Control : MonoBehaviour
             isSunshizhen = false;
         }
     }
-    //摇骰子
+    //roll the dice
     private void Roll()
     {
         //Rollnumber = pannelManager.currentNumber;
-        ////测试当骰子数为6
+        ////test when the number of dice is 6
         //nextnumber = this.accumulatedLayernumber + 6;
         //for (int i = accumulatedLayernumber; i < nextnumber; i++)
         //{
@@ -134,15 +134,15 @@ public class Movement_Control : MonoBehaviour
 
         //}
         currentnumber = accumulatedLayernumber;
-        //骰子数等于1
-        nextnumber = currentnumber +1;
+        //test the dice number
+        nextnumber = currentnumber +3;
     }
-    //移动总控制,
+    //movement control
     private void Move() {
 
     }
 
-    //到达目标点
+    //when arrive at the target point
     private void AtWakingend()
     {
         if (accumulatedLayernumber == nextnumber)
@@ -162,7 +162,7 @@ public class Movement_Control : MonoBehaviour
     //    }
 
     //}
-    //前进
+    //moveforward
     public void Walk() {
         anim.SetBool("Walk", true);
         //Vector2 movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -187,7 +187,7 @@ public class Movement_Control : MonoBehaviour
 
     }
 
-    //停下来
+    //stop walking
     private void Stop()
     {
         //rb.velocity = new Vector3(0, 0, 0);
@@ -197,7 +197,7 @@ public class Movement_Control : MonoBehaviour
         //controller.Move(-transform.forward * walkSpeed * Time.deltaTime);
 
     }
-    //转身
+    //rotation
     private void Rotate()
     {
         Stop();
@@ -305,7 +305,8 @@ public class Movement_Control : MonoBehaviour
             {
                 Stop();
                 Rotate();
-             
+                Rotate();
+
 
 
             }
@@ -341,7 +342,7 @@ public class Movement_Control : MonoBehaviour
 
     public void rollw() {
         currentnumber = accumulatedLayernumber;
-        //骰子数等于1
+        //dice number =1 
         nextnumber = currentnumber + pannelManager.currentNumber;
         IsTouchConnerPoint = false;
     }
