@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class lookperson : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class lookperson : MonoBehaviour
     public float rot = 0;
     private float roll = 30f * Mathf.PI * 2 / 360;
     private GameObject target;
+    public Button choose;
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("hite Knight 03 Blue3 Blue");
+        choose.onClick.AddListener(newscene);
     }
 
     // Update is called once per frame
@@ -37,5 +40,8 @@ public class lookperson : MonoBehaviour
             currentchar = 0;
         }
         target = character[currentchar];
+    }
+    public void newscene() {
+        GameManager.Instance.LoadScene("test");
     }
 }
