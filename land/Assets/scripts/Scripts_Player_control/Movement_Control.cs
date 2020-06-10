@@ -6,7 +6,7 @@ public class Movement_Control : MonoBehaviour
 {
 
 
-
+    public Player my;
     [SerializeField] private float movementSpeed = 2f;
     private float currentSpeed = 0f;
     private float walkSpeed = 1f;
@@ -33,7 +33,7 @@ public class Movement_Control : MonoBehaviour
     //用于顺逆时针判断点参数
     public int Judge = 2;
     //累计走过的步数。用于骰子数检测
-    public int accumulatedLayernumber=2;
+    public int accumulatedLayernumber;
     public int bushu;
     [Header("detection")]
     public LayerMask pointlayer;
@@ -46,7 +46,7 @@ public class Movement_Control : MonoBehaviour
     public bool IsTouchConnerPoint = true;
     //是否顺时针
     public bool isSunshizhen = true;
-
+    public Event eve;
 
     private void Start()
     {
@@ -54,7 +54,9 @@ public class Movement_Control : MonoBehaviour
         anim = GetComponent<Animator>();
         coll = GetComponent<CapsuleCollider>();
         pannelManager = GetComponent<pannelManager>();
-        bushu = 1;
+        nextnumber = 0;
+        currentnumber = 0;
+        accumulatedLayernumber = -2;
     }
     private void Update()
     {
@@ -133,7 +135,7 @@ public class Movement_Control : MonoBehaviour
         //}
         currentnumber = accumulatedLayernumber;
         //骰子数等于1
-        nextnumber = currentnumber + 2 +1;
+        nextnumber = currentnumber +1;
     }
     //移动总控制,
     private void Move() {
@@ -324,14 +326,24 @@ public class Movement_Control : MonoBehaviour
 
             }
         }
-
+        if (accumulatedLayernumber==nextnumber-1) {
+            eve.eventTrigger(other,my);
+        }
         //bushu = bushu - 1;
         //if (bushu>0) {
         //    IsTouchConnerPoint = false;
         //}
+        IsTouchConnerPoint = false;
         accumulatedLayernumber += 1;
         //IsTouchConnerPoint = false;
         
+    }
+
+    public void rollw() {
+        currentnumber = accumulatedLayernumber;
+        //骰子数等于1
+        nextnumber = currentnumber + pannelManager.currentNumber;
+        IsTouchConnerPoint = false;
     }
 
 
