@@ -13,13 +13,30 @@ public class pannelManager : MonoBehaviour
     public static int currentNumber;
     public string currentEvent;
     public string currentChance;
+    public int currentChanceId;
+    public int currenteventId;
     public int turn = 1;
     public int currenteve;
     public Text turntext;
     public Movement_Control currentchars;
     public GameObject mainpannel;
-   
 
+    private void Start()
+    {
+        chanceContents = new List<string>();
+        chanceContents.Add("gain 100 gold");
+        chanceContents.Add("lose 100 gold");
+        chanceContents.Add("gain 200 gold");
+        chanceContents.Add("gain 300 gold");
+        chanceContents.Add("gain 100 gold from random player");
+        eventContents.Add("random player gain 100 gold");
+        eventContents.Add("random player lose 100 gold");
+        eventContents.Add("random player gain 200 gold");
+        eventContents.Add("random player gain 300 gold");
+        eventContents.Add("random player gain 100 gold from random player");
+
+
+    }
     public void setContext(string value)
     {
         contentText.text = value;
@@ -37,8 +54,10 @@ public class pannelManager : MonoBehaviour
     }
 
     public void getChance() {
-        currentChance = chanceContents[Random.Range(0, chanceContents.Count)];
+        currentChanceId = Random.Range(0, chanceContents.Count);
+        currentChance = chanceContents[currentChanceId];
         setContext(currentChance);
+        mainpannel.SetActive(true);
     }
 
     public void landdeve() {
@@ -49,7 +68,10 @@ public class pannelManager : MonoBehaviour
     }
 
     public void getEvent() {
-        currentEvent = eventContents[Random.Range(0, eventContents.Count)];
+        currenteventId = Random.Range(0, chanceContents.Count);
+        currentEvent = eventContents[currenteventId];
+        setContext(currentEvent);
+        mainpannel.SetActive(true);
     }
 
     public void setTurn(){

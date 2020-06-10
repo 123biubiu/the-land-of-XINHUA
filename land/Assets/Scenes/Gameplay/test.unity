@@ -643,6 +643,8 @@ MonoBehaviour:
   dice2: {fileID: 482891820}
   currentEvent: 
   currentChance: 
+  currentChanceId: 0
+  currenteventId: 0
   turn: 0
   currenteve: 0
   turntext: {fileID: 92428518}
@@ -5356,7 +5358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402400, guid: 10fd5d5a6d1a4bc44adc97dfb45d60f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12
+      value: 9.95
       objectReference: {fileID: 0}
     - target: {fileID: 402400, guid: 10fd5d5a6d1a4bc44adc97dfb45d60f1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5364,7 +5366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402400, guid: 10fd5d5a6d1a4bc44adc97dfb45d60f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -6.22
       objectReference: {fileID: 0}
     - target: {fileID: 402400, guid: 10fd5d5a6d1a4bc44adc97dfb45d60f1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9505,7 +9507,7 @@ GameObject:
   - component: {fileID: 2077678198}
   m_Layer: 8
   m_Name: Cube (21)
-  m_TagString: land
+  m_TagString: testpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

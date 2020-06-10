@@ -135,7 +135,7 @@ public class Movement_Control : MonoBehaviour
         //}
         currentnumber = accumulatedLayernumber;
         //test the dice number
-        nextnumber = currentnumber +3;
+        nextnumber = currentnumber +1;
     }
     //movement control
     private void Move() {
